@@ -1,74 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeloxStore | Minecraft Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+        header {
+            background-color: #1e293b;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            color: #f59e0b;
+            font-size: 30px;
+        }
+        header p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .nav-links {
+            margin-top: 10px;
+        }
+        .nav-links a {
+            color: #38bdf8;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .hero {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .hero h2 {
+            font-size: 30px;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+        .products h2 {
+            color: #f59e0b;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .card {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .card h3 {
+            color: #f59e0b;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .price {
+            display: block;
+            font-size: 18px;
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .buy-btn {
+            background-color: #f59e0b;
+            color: #0f172a;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .buy-btn:hover {
+            background-color: #d97706;
+        }
 
-  color: #f5a623;
-  font-size: 30px;
-}
+        /* Popup Modal Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup-content {
+            background: #1e293b;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            width: 90%;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .popup-content h3 {
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        .popup-content p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        .discord-btn {
+            display: block;
+            background-color: #5865F2;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .discord-btn:hover {
+            background-color: #4752C4;
+        }
+        .close-btn {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .close-btn:hover {
+            background-color: #dc2626;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+            background-color: #1e293b;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
 
-nav {
-  padding: 15px;
-  text-align: center;
-}
+    <header>
+        <h1>VELOXSTORE</h1>
+        <p>Minecraft Java & Bedrock Store</p>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Store</a>
+            <a href="https://discord.gg/rSHJeK8uV" target="_blank">Discord</a>
+        </div>
+    </header>
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 12px;
-}
+    <div class="container">
+        <div class="hero">
+            <h2>WELCOME TO VELOXSTORE</h2>
+            <p>Discover amazing Minecraft ranks and items!</p>
+        </div>
 
-.hero {
-  text-align: center;
-  padding: 65px 15px;
-  background: linear-gradient(135deg,#202c42,#10131b);
-}
+        <div class="products">
+            <h2>OUR PRODUCTS</h2>
+            
+            <!-- VIP Rank -->
+            <div class="card">
+                <h3>VIP RANK</h3>
+                <p>Special VIP privileges</p>
+                <span class="price">Rs. 200</span>
+                <button onclick="openPopup()" class="buy-btn">Buy Now</button>
+            </div>
 
-.hero h2 {
-  font-size: 35px;
-  color: #f5a623;
-}
+            <!-- MVP Rank -->
+            <div class="card">
+                <h3>MVP RANK</h3>
+                <p>Exclusive MVP privileges</p>
+                <span class="price">Rs. 700</span>
+                <button onclick="openPopup()" class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </div>
 
-.hero p {
-  margin: 15px;
-  color: #ccc;
-}
+    <footer>
+        <p>&copy; 2026 VeloxStore. All Rights Reserved.</p>
+        <p>Minecraft Java & Bedrock</p>
+    </footer>
 
-.products {
-  padding: 35px 15px;
-  text-align: center;
-}
+    <!-- Popup Modal -->
+    <div id="discordPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Join Discord</h3>
+            <p>Rank kharidne ke liye pehle hamara Discord server join karein aur ticket create karein!</p>
+            <a href="https://discord.gg/rSHJeK8uV" target="_blank" class="discord-btn">Join Discord Server</a>
+            <button onclick="closePopup()" class="close-btn">Band Karein</button>
+        </div>
+    </div>
 
-.products h2 {
-  margin-bottom: 25px;
-  color: #f5a623;
-}
+    <script>
+        function openPopup() {
+            document.getElementById('discordPopup').style.display = 'flex';
+        }
 
-.grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+        function closePopup() {
+            document.getElementById('discordPopup').style.display = 'none';
+        }
+    </script>
 
-.card {
-  background: #202735;
-  padding: 25px;
-  border-radius: 12px;
-  width: 260px;
-  border: 1px solid #39465a;
-}
-
-.card h3 {
-  margin: 15px;
-}
-
-.price {
-  color: #f5a623;
-  font-size: 23px;
-  margin: 15px;
-}
-
-button {
-  background: #f5a623;
-  border: none;
-  padding: 12px 22px;
-  border-radius: 7px;
-  font-weight: bold;
-  
+</body>
+              </html>
