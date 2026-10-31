@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VeloxStore | Minecraft Store</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #10131b;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #191f2b;
+  padding: 22px;
+  text-align: center;
+  border-bottom: 2px solid #f5a623;
+}
+
+header h1 {
+  color: #f5a623;
+  font-size: 30px;
+}
+
+nav {
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 12px;
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 15px;
+  background: linear-gradient(135deg,#202c42,#10131b);
+}
+
+.hero h2 {
+  font-size: 35px;
+  color: #f5a623;
+}
+
+.hero p {
+  margin: 15px;
+  color: #ccc;
+}
+
+.products {
+  padding: 35px 15px;
+  text-align: center;
+}
+
+.products h2 {
+  margin-bottom: 25px;
+  color: #f5a623;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #202735;
+  padding: 25px;
+  border-radius: 12px;
+  width: 260px;
+  border: 1px solid #39465a;
+}
+
+.card h3 {
+  margin: 15px;
+}
+
+.price {
+  color: #f5a623;
+  font-size: 23px;
+  margin: 15px;
+}
+
+button {
+  background: #f5a623;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  background: #191f2b;
+  padding: 25px;
+  text-align: center;
+  margin-top: 40px;
+  color: #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>VELOXSTORE</h1>
+  <p>Minecraft Java & Bedrock Store</p>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#products">Store</a>
+  <a href="#contact">Discord</a>
+</nav>
+
+<section class="hero">
+  <h2>WELCOME TO VELOXSTORE</h2>
+  <p>Discover amazing Minecraft ranks and items!</p>
+  <button onclick="document.getElementById('products').scrollIntoView()">
+    Explore Store
+  </button>
+</section>
+
+<section class="products" id="products">
+  <h2>OUR PRODUCTS</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>VIP RANK</h3>
+      <p>Special VIP privileges</p>
+      <div class="price">Rs. 200</div>
+      <button onclick="order('VIP RANK')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>MVP RANK</h3>
+      <p>Exclusive MVP privileges</p>
+      <div class="price">Rs. 400</div>
+      <button onclick="order('MVP RANK')">Buy Now</button>
+    </div>
+
+    <div class="card">
+      <h3>LEGEND RANK</h3>
+      <p>Ultimate gaming privileges</p>
+      <div class="price">Rs. 700</div>
+      <button onclick="order('LEGEND RANK')">Buy Now</button>
+    </div>
+
+  </div>
+</section>
+
+<footer id="contact">
+  <h3>VELOXSTORE</h3>
+  <p>© 2026 VeloxStore. All Rights Reserved.</p>
+  <p>Minecraft Java & Bedrock</p>
+</footer>
+
+<script>
+function order(product) {
+  alert("You selected " + product +
+  ". Please contact our store to complete your order.");
+}
+</script>
+
+</body>
+</html>
